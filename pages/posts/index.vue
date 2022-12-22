@@ -8,6 +8,10 @@
             class="btn add-btn"
             @click="toggleFormVisible"
           >Add New Post</button>
+          <button
+            class="btn back-btn"
+            @click.prevent="$router.go(-1)"
+          >Back</button>
         </div>
 
         <div class="list-post">
@@ -88,7 +92,7 @@ export default {
   width: 900px;
   margin: auto;
   > #title {
-    margin: 30px 0 20px 0;
+    margin-bottom: 20px;
     font-size: 30px;
     font-weight: 500;
     text-transform: uppercase;
@@ -107,7 +111,11 @@ export default {
 .content {
   > .header {
     > .add-btn {
-      margin: 10px 0 20px 0;
+      margin: 10px 10px 20px 0;
+    }
+
+    > .back-btn {
+      width: 100px
     }
   }
 

@@ -87,7 +87,7 @@ export default {
   width: 700px;
   margin: auto;
   > #title {
-    margin: 100px 0 20px 0;
+    margin-bottom: 20px;
     font-size: 30px;
     font-weight: 500;
     text-transform: uppercase;
