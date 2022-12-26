@@ -6,9 +6,9 @@
         <div class="row-item">
           <div class="form-item">
             <label class="form-label">Email</label>
-            <input v-model.trim="$v.email.$model" class="form-input" />
+            <input v-model.trim="email" class="form-input" @blur="$v.email.$touch" />
             <div
-              v-if="$v.email.$error && $v.email.$dirty"
+              v-if="$v.email.$error"
               class="error-container"
             >
               <div v-if="!$v.email.required" class="error">
@@ -20,9 +20,9 @@
 
           <div class="form-item">
             <label class="form-label">Password</label>
-            <input v-model.trim="$v.password.$model" class="form-input" />
+            <input v-model.trim="password" class="form-input" @blur="$v.password.$touch" />
             <div
-              v-if="$v.password.$error && $v.password.$dirty"
+              v-if="$v.password.$error"
               class="error-container"
             >
               <div v-if="!$v.password.required" class="error">
@@ -33,25 +33,25 @@
                 {{ $v.password.$params.minLength.min }} characters
               </div>
               <div
-                v-if="!$v.password.oneSpecialCharacter && $v.password.$dirty"
+                v-if="!$v.password.oneSpecialCharacter"
                 class="error"
               >
                 Password must have at least 1 special character
               </div>
               <div
-                v-if="!$v.password.oneUppercaseCharacter && $v.password.$dirty"
+                v-if="!$v.password.oneUppercaseCharacter"
                 class="error"
               >
                 Password must have at least 1 uppercase character
               </div>
               <div
-                v-if="!$v.password.oneNumberCharacter && $v.password.$dirty"
+                v-if="!$v.password.oneNumberCharacter"
                 class="error"
               >
                 Password must have at least 1 number character
               </div>
               <div
-                v-if="!$v.password.oneLowercaseCharacter && $v.password.$dirty"
+                v-if="!$v.password.oneLowercaseCharacter"
                 class="error"
               >
                 Password must have at least 1 lowercase character
@@ -63,9 +63,9 @@
         <div class="row-item">
           <div class="form-item">
             <label class="form-label">Name</label>
-            <input v-model.trim="$v.name.$model" class="form-input" />
+            <input v-model.trim="name" class="form-input" @blur="$v.name.$touch" />
             <div
-              v-if="$v.name.$error && $v.name.$dirty"
+              v-if="$v.name.$error"
               class="error-container"
             >
               <div v-if="!$v.name.required" class="error">Name is required</div>
@@ -86,12 +86,13 @@
           <div class="form-item">
             <label class="form-label">Date of Birth</label>
             <input
-              v-model.trim="$v.birthDate.$model"
+              v-model.trim="birthDate"
               class="form-input"
               type="date"
+              @blur="$v.birthDate.$touch"
             />
             <div
-              v-if="$v.birthDate.$error && $v.birthDate.$dirty"
+              v-if="$v.birthDate.$error"
               class="error-container"
             >
               <div v-if="!$v.birthDate.required" class="error">
@@ -106,12 +107,13 @@
           <div class="form-item">
             <label class="form-label">Graduation Date</label>
             <input
-              v-model.trim="$v.graduationDate.$model"
+              v-model.trim="graduationDate"
               class="form-input"
               type="date"
+              @blur="$v.graduationDate.$touch"
             />
             <div
-              v-if="$v.graduationDate.$error && $v.graduationDate.$dirty"
+              v-if="$v.graduationDate.$error"
               class="error-container"
             >
               <div v-if="!$v.graduationDate.validGraduationDate" class="error">
@@ -129,9 +131,9 @@
 
           <div class="form-item">
             <label class="form-label">Phone</label>
-            <input v-model.trim="$v.phone.$model" class="form-input" />
+            <input v-model.trim="phone" class="form-input" @blur="$v.phone.$touch" />
             <div
-              v-if="$v.phone.$error && $v.phone.$dirty"
+              v-if="$v.phone.$error"
               class="error-container"
             >
               <div v-if="!$v.phone.required" class="error">
@@ -147,7 +149,7 @@
         <button
           class="btn"
           type="submit"
-          :disabled="submitStatus === 'PENDING'"
+          :disabled="$v.$invalid"
         >
           Submit
         </button>
@@ -310,6 +312,6 @@ export default {
 }
 
 ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+  filter: invert(1);
 }
 </style>

@@ -25,4 +25,8 @@ a {
         color: #111820;
         transition: ease 0.3s;
     }
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }
