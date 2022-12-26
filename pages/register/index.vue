@@ -2,11 +2,11 @@
   <div class="register-page">
     <div class="form-container">
       <h3 id="title">Registration Form</h3>
-      <form class="form" @submit.prevent="submit">
-        <div class="row-item">
+      <form class="form-content" @submit.prevent="submit">
+        <div class="rowitem">
           <div class="form-item">
-            <label class="form-label">Email</label>
-            <input v-model.trim="email" class="form-input" @blur="$v.email.$touch" />
+            <label class="formLabel">Email</label>
+            <input v-model.trim="email" class="formInput" @blur="$v.email.$touch" />
             <div
               v-if="$v.email.$error"
               class="error-container"
@@ -19,8 +19,8 @@
           </div>
 
           <div class="form-item">
-            <label class="form-label">Password</label>
-            <input v-model.trim="password" class="form-input" @blur="$v.password.$touch" />
+            <label class="formLabel">Password</label>
+            <input v-model.trim="password" class="formInput" @blur="$v.password.$touch" />
             <div
               v-if="$v.password.$error"
               class="error-container"
@@ -60,10 +60,10 @@
           </div>
         </div>
 
-        <div class="row-item">
+        <div class="rowitem">
           <div class="form-item">
-            <label class="form-label">Name</label>
-            <input v-model.trim="name" class="form-input" @blur="$v.name.$touch" />
+            <label class="formLabel">Name</label>
+            <input v-model.trim="name" class="formInput" @blur="$v.name.$touch" />
             <div
               v-if="$v.name.$error"
               class="error-container"
@@ -73,8 +73,8 @@
           </div>
 
           <div class="form-item">
-            <label class="form-label">Gender</label>
-            <select v-model="gender" class="form-input -borderless">
+            <label class="formLabel">Gender</label>
+            <select v-model="gender" class="formInput -borderless">
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="others">Others</option>
@@ -82,12 +82,12 @@
           </div>
         </div>
 
-        <div class="row-item">
+        <div class="rowitem">
           <div class="form-item">
-            <label class="form-label">Date of Birth</label>
+            <label class="formLabel">Date of Birth</label>
             <input
               v-model.trim="birthDate"
-              class="form-input"
+              class="formInput"
               type="date"
               @blur="$v.birthDate.$touch"
             />
@@ -105,10 +105,10 @@
           </div>
 
           <div class="form-item">
-            <label class="form-label">Graduation Date</label>
+            <label class="formLabel">Graduation Date</label>
             <input
               v-model.trim="graduationDate"
-              class="form-input"
+              class="formInput"
               type="date"
               @blur="$v.graduationDate.$touch"
             />
@@ -123,15 +123,15 @@
           </div>
         </div>
 
-        <div class="row-item">
+        <div class="rowitem">
           <div class="form-item">
-            <label class="form-label">Address</label>
-            <textarea v-model="address" class="form-input" />
+            <label class="formLabel">Address</label>
+            <textarea v-model="address" class="formInput" />
           </div>
 
           <div class="form-item">
-            <label class="form-label">Phone</label>
-            <input v-model.trim="phone" class="form-input" @blur="$v.phone.$touch" />
+            <label class="formLabel">Phone</label>
+            <input v-model.trim="phone" class="formInput" @blur="$v.phone.$touch" />
             <div
               v-if="$v.phone.$error"
               class="error-container"
@@ -263,8 +263,8 @@ export default {
   }
 }
 
-.form {
-  > .row-item {
+.form-content {
+  > .rowitem {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
@@ -283,18 +283,18 @@ export default {
 }
 
 .form-item {
-  > .form-input {
+  > .formInput {
     width: 100%;
     border: 1px solid #313131;
     padding: 8px 16px;
     background-color: #2b2b2b;
     color: #fff;
-    & -borderless {
+    &.-borderless {
       border: 0px;
     }
   }
 
-  > .form-label {
+  > .formLabel {
     display: block;
     margin-bottom: 10px;
   }
